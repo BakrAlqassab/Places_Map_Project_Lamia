@@ -11,7 +11,7 @@ html {
 
 body {
   margin: 0;
-  background-image: url("../../images/bg_img.jpg");
+  background-image: url("../../images/map_loc.jpg");
 
   background-size: cover;
   background-position: bottom;
@@ -25,11 +25,15 @@ main {
     rgba(0, 0, 0, 0.75)
   );
 }
+button {
+  margin: 10px;
+  padding: 2px 2px;
+}
 
 /*                                               Header                       */
 header {
   margin-top: 0;
-  margin: 2rem;
+  margin: 5.5px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -40,20 +44,24 @@ header {
     rgba(0, 0, 0, 0.25),
     rgba(0, 0, 0, 0.25)
   );
-  height: 145px;
-  margin: 10px;
-  width: 190px;
+  height: 90px;
+  margin: 10px 56px;
+  width: 146px;
   box-shadow: 0 0 8px 2px rgb(0 0 0 / 20%);
   border-radius: 0.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.logo img {
+  height: -webkit-fill-available;
+  width: 90%;
+}
 
 .title {
   color: #fff;
   text-align: center;
-  margin-left: 35%;
+  margin-left: 25%;
   font-size: 35px;
   font-weight: 700;
   font-style: italic;
@@ -62,13 +70,12 @@ header {
 
 @media (max-width: 768px) {
   .logo {
-    height: 30%;
-    width: 35%;
     box-shadow: 0 0 8px 2px rgb(0 0 0 / 20%);
     border-radius: 0.25rem;
+    margin: 10px 30px;
   }
   .logo img {
-    width: 100%;
+    /* width: 100%; */
   }
   .header {
     justify-content: start;
@@ -77,20 +84,27 @@ header {
 
 @media (max-width: 400px) {
   .logo {
-    height: 30%;
-    width: 65%;
+    /* height: 67%; */
+    /* width: 65%; */
     box-shadow: 0 0 8px 2px rgb(0 0 0 / 20%);
     border-radius: 0.25rem;
+    margin: 10px 15px;
   }
-  .logo img {
-    width: 100%;
-  }
+
   .header {
     justify-content: start;
-    margin: 12px 4.5px;
+    margin: 0.5rem;
   }
   .title {
     margin-left: 10%;
+  }
+
+  .search-box {
+    width: 98%;
+    margin-left: 6%;
+  }
+  .selected-place {
+    height: 18rem;
   }
 }
 
@@ -99,26 +113,85 @@ header {
 /*                                                 Search Box                       */
 
 .search-box {
-  width: 100%;
-  margin-left: 5%;
+  margin: 0px 5%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+
+  width: auto;
+  border-radius: 16px 16px 16px 16px;
 }
-.search-box .search-bar {
-  display: block;
-  width: 90%;
+.search-bar {
+  width: 95%;
   padding: 15px;
+  /* margin-left: 5%; */
   color: #313131;
   font-size: 20px;
   appearance: none;
   border: none;
   outline: none;
   background: none;
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 0px 16px 0px 16px;
+  /* box-shadow: 0px 0px 16px rgb(0 0 0 / 50%);
+    background-color: rgba(255, 255, 255, 0.5); */
+  /* border-radius: 0px 16px 0px 16px; */
   transition: 0.4s;
 }
 .search-box .search-bar:focus {
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.75);
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 16px 0px 16px 0px;
+}
+.search-box .search-btn {
+  height: 9vh;
+}
+
+/*                                          Map component  */
+#selected-place {
+  /* width: 65rem; */
+  height: 25rem;
+  max-width: 90%;
+  margin: 1rem auto;
+  border: 1px solid #ccc;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 0px 25px;
+}
+
+.savedLoc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-content: space-evenly;
+
+  margin: 0px 5%;
+}
+
+@media (max-width: 400px) {
+  .selected-place {
+    height: 18rem;
+  }
+}
+
+/*                                                                  Body End  */
+/*                                                                  Footer */
+
+footer {
+  color: white;
+  text-shadow: 6px 3px rgb(19 1 1 / 25%);
+  font-variant: all-small-caps;
+  /* height: 10%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(102, 204, 255, 0.25);
 }

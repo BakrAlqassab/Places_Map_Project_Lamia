@@ -27,12 +27,36 @@
             placeholder="Search..."
             @keypress=""
           />
+          <img
+            src="./images/search_icon.svg"
+            class="search-btn"
+            alt=""
+          />
         </div>
-        <div class="search-box"></div>
-        <div class="map"></div>
+        <!-- <div class="search-box"></div> -->
+        <div class="map">
+          <section id="selected-place"  style=' display:none'>
+            <div id="map">
+              <p>
+                You haven't selected any place yet. Please enter an address or
+                locate yourself!
+              </p>
+            </div>
+          </section>
+          <section class='savedLoc' >
+            <button style="background-color: blue" type="button">
+              I am a blue button! Click me!
+            </button >
+            <button style="background-color: red" type="button">
+              I am a blue button! Click me!
+            </button>
+          </section>
+        </div>
       </body>
       <footer>
-        <div class="footer"></div>
+        <div class="footer">
+          copyright lamia
+        </div>
       </footer>
     </main>
   </body>

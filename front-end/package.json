@@ -1,6 +1,24 @@
 {
+  "name": "places_map_project",
+  "version": "1.0.0",
+  "description": "The project is done for Lamia comapny as test to my knowledge in coding for open role in the comapny",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BakrAlqassab/Places_Map_Project_Lamia.git"
+  },
+  "author": "Bakr Al-Qassab",
   "devDependencies": {
-    "webpack": "^5.24.2",
-    "webpack-cli": "^4.5.0"
-  }
+    "webpack": "4.46.0",
+    "webpack-cli": "4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "bugs": {
+    "url": "https://github.com/BakrAlqassab/Places_Map_Project_Lamia/issues"
+  },
+  "homepage": "https://github.com/BakrAlqassab/Places_Map_Project_Lamia#readme",
+  "main": "webpack.config.js",
+  "license": "ISC"
 }

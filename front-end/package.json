@@ -9,11 +9,12 @@
   "author": "Bakr Al-Qassab",
   "devDependencies": {
     "webpack": "4.46.0",
-    "webpack-cli": "4.5.0",
+    "webpack-cli": "3.3.8",
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "build:dev": "webpack-dev-server"
   },
   "bugs": {
     "url": "https://github.com/BakrAlqassab/Places_Map_Project_Lamia/issues"

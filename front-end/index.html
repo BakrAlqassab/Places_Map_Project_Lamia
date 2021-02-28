@@ -7,15 +7,20 @@
     <title>Share a Place</title>
     <link rel="stylesheet" href="assets/styles/app.css" />
     <link rel="stylesheet" href="assets/Scss/App.scss" />
+      <script src="assets/scripts/app.js"     defer ></script>
+      <script  src="src/Utility/autoComplete.js"   defer ></script>
+         <!-- <script src="src/app.js"   defer ></script> -->
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=ADD YOUR API KEY HERE"
+    src="https://maps.googleapis.com/maps/api/js?key=ENTER YOUR API KEY&libraries=places&callback=initAutocomplete"
     defer
   ></script>
-    <!-- <script src="assets/scripts/app.js"  defer type="module"></script> -->1
-    <script src="src/app.js"  defer type='module'></script>
+  
+    <!-- <script src="src/app.js"  defer type='module'></script> -->
   </head>
   <body>
     <main>
+    
+  
       <template id="modal-template">
         <div class="backdrop"></div>
         <div class="modal"></div>
@@ -39,15 +44,23 @@
           <input
             type="text"
             name=""
+            id='autoComplete' 
             class="search-bar"
             placeholder="Search..."
-            @keypress=""
+           
           />
         
           <button class='search-btn' type="submit"><img  class='search-icon' src="assets/images/search_icon.svg"></button>
         </form>
         <!-- <div class="search-box"></div> -->
-
+        <!-- <input
+        type="text"
+        name=""
+        id='autoComplete' 
+        class="search-bar"
+        placeholder="Search..."
+       
+      /> -->
        
       
       </section >
@@ -106,7 +119,20 @@
       </footer>
     </main>
 
-   <script>
+
+   <script >
+      // let autoComplete;
+      //   function initAutocomplete() {
+  
+      //           autoComplete = new google.maps.places.Autocomplete(document.getElementById('autoComplete'), {
+      //       // types: ['geocode']
+      //       types: ["establishment"],
+      //       componentRestrictions:{'country':['AU']},
+      //       fields:['place_id','geometry','name']
+      //     });
+      //     }
+
+     
 
 const colls = document.getElementsByClassName('picking_btn');
 this.toggleContent= (content)=> {

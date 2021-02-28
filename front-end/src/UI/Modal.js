@@ -4,6 +4,8 @@ export class Modal {
     this.modalTemplateEl = document.getElementById("modal-template");
     this.fallbackText = fallbackText;
   }
+
+   //                                           feedback loader 
   show() {
     //check if template tag is available in target browser
     if ("content" in document.createElement("template")) {
@@ -20,7 +22,7 @@ export class Modal {
       );
 
       this.modalElement.appendChild(contentElement);
-      // modal and backdrop elements to the Dom
+      // Detect modal and backdrop elements to the Dom
       document.body.insertAdjacentElement("afterbegin", this.modalElement);
       document.body.insertAdjacentElement("afterbegin", this.backdropElement);
     } else {

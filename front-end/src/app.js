@@ -2,13 +2,19 @@
 // import "./Utility/autoComplete";
 import { Modal } from "./UI/Modal.js";
 import { Map } from "./UI/Map.js";
-import { getCoordsFromAddress } from "./Utility/Location";
-
+import {
+  getCoordsFromAddress,
+  getAddressFromCoords,
+  getOpenSelectedLocations,
+} from "./Utility/Location";
 
 class placeFinder {
   constructor() {
     const addressForm = document.querySelector("form");
     const locateUserBtn = document.getElementById("locate-btn");
+    //
+    const fetchPlaces = document.getElementById("fetchPlaces");
+    //
     const SearchPlaces = document.querySelector(".search-bar");
     this.mapArea = document.getElementById("selected-place");
     this.searchSeaction = document.querySelector(".search-box");
@@ -18,16 +24,54 @@ class placeFinder {
     // const status = document.getElementById("status");
     // const mapLink = document.getElementById("status");
     locateUserBtn.addEventListener("click", this.locateUserHandler.bind(this));
+    fetchPlaces.addEventListener("click", this.openSelectedPlaces.bind(this));
     addressForm.addEventListener("submit", this.findAddressHandler.bind(this));
   }
 
-  selectPlace(coordiantes) {
-    // / to reuse the existing one and just render the data
+  selectPlace(coordinates, address) {
+    console.log(coordinates);
+    // to reuse the existing one and just render the data
     if (this.map) {
-      this.map.render(coordiantes);
+      this.map.render(coordinates);
     } else {
-      this.map = new Map(coordiantes);
+      this.map = new Map(coordinates);
     }
+
+    fetch("http://localhost:3000/add-location", {
+      method: "POST",
+      body: JSON.stringify({
+        address: address,
+        lat: coordinates.lat,
+        lng: coordinates.lng,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch coordinates - Please try again!");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.error_message) {
+          throw new Error(data.error_message);
+        }
+        console.log("data");
+        console.log(data);
+      });
+  }
+
+  async openSelectedPlaces() {
+    const openPlaces = await getOpenSelectedLocations();
+    const address = await getAddressFromCoords(openPlaces);
+   this.statusText.textContent = address;
+    this.selectPlace(openPlaces, address);
+    this.searchSeaction.style.margin = "0%";
+    this.mapArea.style.display = "block";
+    console.log("Open Places");
+    console.log(openPlaces);
   }
   locateUserHandler() {
     // unsupport broswser fall back
@@ -44,19 +88,20 @@ class placeFinder {
     );
     modal.show();
     navigator.geolocation.getCurrentPosition(
-      (successResult) => {
+      async (successResult) => {
         modal.hide();
-        console.log(successResult);
         const myCurrentCoordinates = {
           lat: successResult.coords.latitude,
           lng: successResult.coords.longitude,
         };
 
-        // this.selectPlace(myCurrentCoordinates);
+        const address = await getAddressFromCoords(myCurrentCoordinates);
+
+        this.selectPlace(myCurrentCoordinates, address);
         console.log(myCurrentCoordinates);
-        this.searchSeaction.style.margin = "2% 0% 1% 0%";
+        this.searchSeaction.style.margin = "0%";
         this.mapArea.style.display = "block";
-        this.statusText.innerHTML = "Success ";
+         this.statusText.textContent = address;
       },
       (error) => {
         modal.hide();
@@ -85,13 +130,15 @@ class placeFinder {
     modal.show();
     try {
       const coordinates = await getCoordsFromAddress(address);
-      // this.selectPlace(coordinates);
+
+      this.selectPlace(coordinates, address);
     } catch (err) {
       console.log(err);
       alert(err.message);
     }
     modal.hide();
-    this.searchSeaction.style.margin = "2% 0% 1% 0%";
+    this.statusText.textContent = address;
+    this.searchSeaction.style.margin = "0%";
     this.mapArea.style.display = "block";
   }
 }

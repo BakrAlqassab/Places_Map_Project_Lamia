@@ -21,5 +21,8 @@
   },
   "homepage": "https://github.com/BakrAlqassab/Places_Map_Project_Lamia#readme",
   "main": "webpack.config.js",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }

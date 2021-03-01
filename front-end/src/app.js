@@ -4,6 +4,7 @@ import { Modal } from "./UI/Modal.js";
 import { Map } from "./UI/Map.js";
 import { getCoordsFromAddress } from "./Utility/Location";
 
+
 class placeFinder {
   constructor() {
     const addressForm = document.querySelector("form");
@@ -11,6 +12,7 @@ class placeFinder {
     const SearchPlaces = document.querySelector(".search-bar");
     this.mapArea = document.getElementById("selected-place");
     this.searchSeaction = document.querySelector(".search-box");
+    this.statusText = document.getElementById("status");
     let autoComplete;
 
     // const status = document.getElementById("status");
@@ -54,6 +56,7 @@ class placeFinder {
         console.log(myCurrentCoordinates);
         this.searchSeaction.style.margin = "2% 0% 1% 0%";
         this.mapArea.style.display = "block";
+        this.statusText.innerHTML = "Success ";
       },
       (error) => {
         modal.hide();
@@ -69,6 +72,8 @@ class placeFinder {
     e.preventDefault();
     const address = e.target.querySelector("input").value;
     if (!address || address.trim().length === 0) {
+      this.statusText.textContent =
+        "Invalid entered address - Please try again! ";
       alert("Invalid entered address - Please try again! ");
       return;
     }

@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Share a Place</title>
-    <link rel="stylesheet" href="assets/styles/app.css" />
-    <link rel="stylesheet" href="assets/Scss/App.scss" />
+    <link rel="stylesheet" href="assets/Scss/style.css" />
       <script src="assets/scripts/app.js"     defer ></script>
       <script  src="src/Utility/autoComplete.js"   defer ></script>
-         <!-- <script src="src/app.js"   defer ></script> -->
-    <script
+      <script  src="src/Utility/collapseHandler.js"   defer ></script>
+    
+      <script
     src="https://maps.googleapis.com/maps/api/js?key=ENTER YOUR API KEY&libraries=places&callback=initAutocomplete"
     defer
   ></script>
   
-    <!-- <script src="src/app.js"  defer type='module'></script> -->
   </head>
   <body>
     <main>
@@ -37,10 +36,12 @@
         <div class="title">Places Guide</div>
       </header>
       <body>
+        <div>
         <section class='search-section'>
-    
-        <form class="search-box">
+      
+        <div class="search-box">
           <button alt="get your location" id='locate-btn' ><img  class='locate-icon'  src="https://www.flaticon.com/premium-icon/icons/svg/819/819865.svg"></button>
+         <form style='display: contents'>
           <input
             type="text"
             name=""
@@ -52,21 +53,13 @@
         
           <button class='search-btn' type="submit"><img  class='search-icon' src="assets/images/search_icon.svg"></button>
         </form>
-        <!-- <div class="search-box"></div> -->
-        <!-- <input
-        type="text"
-        name=""
-        id='autoComplete' 
-        class="search-bar"
-        placeholder="Search..."
-       
-      /> -->
-       
+        </div>
+  
+       <p id='status'>Tomato</p>
       
       </section >
-      <!-- <p id=status>rstrdt</p> -->
+      
 
-      <!-- style=' display:none' -->
         <div class="">
           <section id="selected-place"  >
             <div id="map">
@@ -79,6 +72,7 @@
           <div class='savedLoc' >
 
             <!--My Places -->
+            <div class='picking-modal'>
             <button type="button"  class="picking_btn">My places!</button >
             <div class="content">
               <h1 style='color:red'>My Palaces btn</h1>
@@ -91,76 +85,49 @@
               </p>
             </div>
 
-
-
+          </div >
+            <div class='looking-modal'>
                <!-- Looking for open places -->
             <button  type="button" class="picking_btn">
               Looking For ...
             </button>
             <div class="content">
-            <p>asdqadasdadfafbajuadfhdfuihuiohsduifhqweuifwefbhcouiwecvqwbckqcuheF,NQ FCEBU
+              <form>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">resturants</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">gaz stations</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">resturants</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">gaz stations</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+              </form>
 
-              asdqadasdadfafbajuadfhdfuihuiohsduifhqweuifwefbhcouiwecvqwbckqcuheF,NQ FCEBU
-              asdqadasdadfafbajuadfhdfuihuiohsduifhqweuifwefbhcouiwecvqwbckqcuheF,NQ FCEBU
-
-
-            </p>
+              <form>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> I have a car</label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I have a boat</label>
+              </form>
             </div>
            
 
-            
+          </div>
           </section>
         </div>
       </body>
       <footer>
         <div class="footer">
-          copyright lamia
+          Copyright Lamia
         </div>
       </footer>
     </main>
 
-
-   <script >
-      // let autoComplete;
-      //   function initAutocomplete() {
-  
-      //           autoComplete = new google.maps.places.Autocomplete(document.getElementById('autoComplete'), {
-      //       // types: ['geocode']
-      //       types: ["establishment"],
-      //       componentRestrictions:{'country':['AU']},
-      //       fields:['place_id','geometry','name']
-      //     });
-      //     }
-
-     
-
-const colls = document.getElementsByClassName('picking_btn');
-this.toggleContent= (content)=> {
-  if (content.style.height) {
-    content.style.height = null;
-  } else {
-    content.style.height = content.scrollHeight + 'px';
-  }
-}
-
-    collapseAllOpenContent=() =>{
-  const colls = document.getElementsByClassName('picking_btn');
-  for (const coll of colls) {
-    if (coll.classList.contains('picking_btn__active')) {
-      coll.classList.remove('picking_btn__active');
-      toggleContent(coll.nextElementSibling);
-    }
-  }
-}
-for (const coll of colls) {
-  coll.addEventListener('click', function() {
-    if (!this.classList.contains('picking_btn__active')) {
-      collapseAllOpenContent();
-    }
-    this.classList.toggle('picking_btn__active');
-    toggleContent(this.nextElementSibling);
-  });
-}
-   </script>
   </body>
 </html>

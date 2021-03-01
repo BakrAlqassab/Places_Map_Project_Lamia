@@ -1,5 +1,5 @@
-export class CollapseHandler{
-   done () {
+ 
+
 const colls = document.getElementsByClassName('picking_btn');
 this.toggleContent= (content)=> {
   if (content.style.height) {
@@ -26,6 +26,4 @@ for (const coll of colls) {
     this.classList.toggle('picking_btn__active');
     toggleContent(this.nextElementSibling);
   });
-}
-}
 }

@@ -29,8 +29,8 @@ class placeFinder {
   }
 
   selectPlace(coordinates, address) {
-    console.log(coordinates);
-    // to reuse the existing one and just render the data
+
+    // To reuse the existing one and just render the data
     if (this.map) {
       this.map.render(coordinates);
     } else {
@@ -58,20 +58,23 @@ class placeFinder {
         if (data.error_message) {
           throw new Error(data.error_message);
         }
-        console.log("data");
-        console.log(data);
+     
       });
   }
 
   async openSelectedPlaces() {
     const openPlaces = await getOpenSelectedLocations();
-    const address = await getAddressFromCoords(openPlaces);
-   this.statusText.textContent = address;
-    this.selectPlace(openPlaces, address);
+    //  console.log('openPlaces');
+    // console.log(openPlaces);
+    // const address = await getAddressFromCoords(openPlaces);
+    // console.log('openPlaces');
+    // console.log(openPlaces);
+  //  this.statusText.textContent = address;
+    this.selectPlace(openPlaces, '');
     this.searchSeaction.style.margin = "0%";
     this.mapArea.style.display = "block";
-    console.log("Open Places");
-    console.log(openPlaces);
+    // console.log("Open Places");
+    // console.log(openPlaces);
   }
   locateUserHandler() {
     // unsupport broswser fall back

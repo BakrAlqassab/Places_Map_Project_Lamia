@@ -1,13 +1,9 @@
 export class Map {
   constructor(coords) {
-    // this.coordinates = coords;
     this.render(coords);
     this.centerPosition;
   }
   render(coordinates) {
-    // console.log("coordinates");
-    // console.log(coordinates);
-    // console.log(Array.isArray(coordinates));
     //check if we have access to global google variable
     if (!google) {
       alert("could not load maps library - please try again later! ");

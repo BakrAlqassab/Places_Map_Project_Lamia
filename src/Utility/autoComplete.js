@@ -1,14 +1,7 @@
 // import { Map } from "../UI/Map";
 
 let autoComplete;
-//   selectPlace(coordiantes) {
-//     // / to reuse the existing one and just render the data
-//     if (this.map) {
-//       this.map.render(coordiantes);
-//     } else {
-//       this.map = new Map(coordiantes);
-//     }
-//   }
+
 function initAutocomplete() {
   autoComplete = new google.maps.places.Autocomplete(
     document.getElementById("autoComplete"),
@@ -27,7 +20,7 @@ function initAutocomplete() {
       lat: near_location.geometry.location.lat(),
       lng: near_location.geometry.location.lng(),
     };
-    console.log(myCoordinates);
+  
     // this.selectPlace(myCoordinates);
   });
 }

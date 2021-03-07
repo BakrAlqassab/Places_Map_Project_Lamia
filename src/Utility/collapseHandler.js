@@ -4,13 +4,7 @@ this.toggleContent = (content) => {
     content.style.height = null;
   } else {
     content.style.height = content.scrollHeight + "px";
-     window.addEventListener("scroll", () => {
-        const scrollable =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const scrolled = window.scroll(0,scrollable);
-        console.log(scrollable);
-      });
-  }
+
 };
 
 collapseAllOpenContent = () => {

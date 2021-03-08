@@ -155,7 +155,7 @@ table {
 
 #search_places .form-group .radio,
  .form-group .radio {
-  margin: 1em 2em;
+  margin: 1em 1em;
 }
 
 /* adding style to radio buttons */
@@ -217,4 +217,16 @@ table {
  .form-group .btn:hover {
 background-color: $dark;
 color:$border;
+}
+
+
+@media (max-width: 400px) {
+  #search_places .form-group .radio, .form-group .radio {
+    margin: 1em 1em;
+  }
+  .ml3 {
+
+    margin-left: 6em;
+  }
+
 }

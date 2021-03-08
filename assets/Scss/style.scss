@@ -1,4 +1,4 @@
-// @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 @import "./variables.scss";
 * {
   margin: 0;
@@ -31,17 +31,10 @@ body {
 main {
   min-height: 100vh;
   overflow: auto;
-  // position: fixed;
+
   background-image: $bg_shadow;
 }
-// main .body {
-//   overflow: "scroll";
-//   border: "3px solid black";
-//   height: "565px";
 
-//   /* userSelect: "none" */
-// }
-/*Header */
 
 header {
   margin-top: 0;
@@ -51,19 +44,15 @@ header {
   align-items: center;
 }
 .logo {
-  // background-image: $bg_shadow;
   height: 90px;
   margin: 10px 56px;
-  // width: 146px;
   box-shadow: 0 0 8px 2px rgb(0 0 0 / 20%);
   border-radius: 0.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-// .logo img {
-//   width: 120%;
-// }
+
 
 .title {
   color: $whi_col;
@@ -107,10 +96,6 @@ header {
     width: 100%;
   }
 
-  /* .search-box {
-    width: 98%;
-    margin-left: 6%;
-  } */
 
 }
 

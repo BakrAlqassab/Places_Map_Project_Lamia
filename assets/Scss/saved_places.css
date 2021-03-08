@@ -169,7 +169,7 @@ tr {
 
 #search_places .form-group .radio,
 .form-group .radio {
-  margin: 1em 1em;
+  margin: 1em 2em;
 }
 
 /* adding style to radio buttons */
@@ -236,6 +236,6 @@ tr {
   }
 
   .ml3 {
-    margin-left: 6em;
+    margin-left: 6em !important;
   }
 }/*# sourceMappingURL=saved_places.css.map */

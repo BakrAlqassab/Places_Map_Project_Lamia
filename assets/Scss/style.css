@@ -44,7 +44,6 @@ main {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
 }
 
-/*Header */
 header {
   margin-top: 0;
   margin: 5.5px;
@@ -105,11 +104,6 @@ header {
   .logo img {
     width: 100%;
   }
-
-  /* .search-box {
-    width: 98%;
-    margin-left: 6%;
-  } */
 }
 /*                                                Header End  */
 /*                                                 Search Box                       */

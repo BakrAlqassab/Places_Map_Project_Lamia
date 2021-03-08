@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "build:dev": "webpack-dev-server"
+    "build:dev": "webpack-dev-server",
+    "start": "npm run build:dev"
   },
   "bugs": {
     "url": "https://github.com/BakrAlqassab/Places_Map_Project_Lamia/issues"

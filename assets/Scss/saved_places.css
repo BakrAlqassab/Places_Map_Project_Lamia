@@ -169,7 +169,7 @@ tr {
 
 #search_places .form-group .radio,
 .form-group .radio {
-  margin: 1em 2em;
+  margin: 1em 1em;
 }
 
 /* adding style to radio buttons */
@@ -228,4 +228,14 @@ tr {
 .form-group .btn:hover {
   background-color: #2b2d42;
   color: #dee2e6;
+}
+
+@media (max-width: 400px) {
+  #search_places .form-group .radio, .form-group .radio {
+    margin: 1em 1em;
+  }
+
+  .ml3 {
+    margin-left: 6em;
+  }
 }/*# sourceMappingURL=saved_places.css.map */
